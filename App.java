@@ -52,7 +52,7 @@ public class App {
                 logger.info("Aviso: Arquivo log.properties não encontrado. Verifique se ele está na pasta raiz do src.");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.severe("Erro ao carregar configuração de log: " + e.getMessage());
         }
         App app = new App();
         app.work();

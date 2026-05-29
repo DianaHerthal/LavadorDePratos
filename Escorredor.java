@@ -14,6 +14,12 @@ public class Escorredor {
         this.fila = new LinkedList<>(); 
     }
 
+    public synchronized void aguardarEsvaziar() throws InterruptedException {
+        while (!fila.isEmpty()) {
+            wait(); 
+        }
+    }
+
     public synchronized void colocarPrato(Prato prato) throws InterruptedException {
         while (fila.size() == max) {
             wait();

@@ -9,12 +9,13 @@ public class App {
 
 
     private final Lavador lavador;
+    private final Escorredor escorredor;
     private final Enxugador enxugador;
     private Thread threadLavador;
     private Thread threadEnxugador;
 
     public App() {
-        Escorredor escorredor = new Escorredor(MAX);
+        this.escorredor = new Escorredor(MAX);
         PratosSujosFactory fabrica = new PratosSujosFactory();
         this.lavador = new Lavador(escorredor, fabrica);
         this.enxugador = new Enxugador(escorredor);
@@ -34,11 +35,18 @@ public class App {
         logger.info("Fim do expediente! Encerrando os trabalhos...");
         
         lavador.setFinalizado(true);
-        enxugador.setFinalizado(true);
-
         if (threadLavador != null) {
             threadLavador.interrupt();
         }
+
+        try {
+            logger.fine("Aguardando o Enxugador terminar os pratos restantes...");
+            escorredor.aguardarEsvaziar(); 
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        logger.info("Escorredor vazio! Liberando o Enxugador...");
+        enxugador.setFinalizado(true);
         if (threadEnxugador != null) {
             threadEnxugador.interrupt();
         }

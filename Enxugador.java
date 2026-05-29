@@ -32,6 +32,7 @@ public class Enxugador implements Runnable {
                 break;
             }
         }
+
         logger.fine("Enxugador encerrou seu turno de trabalho.");
     }
 }

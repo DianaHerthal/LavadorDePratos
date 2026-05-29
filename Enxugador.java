@@ -23,7 +23,7 @@ public class Enxugador implements Runnable {
                 Prato prato = escorredor.retirarPrato();
                 logger.fine("Enxugador pegou o prato #" + prato.getNSerie() + " do escorredor.");
                 long tempoSecagem = new Random().nextInt(8) + 3; 
-                Thread.sleep(tempoSecagem);
+                // Thread.sleep(tempoSecagem);
                 logger.fine("Enxugador terminou de secar o prato #" + prato.getNSerie() + 
                             " em " + tempoSecagem + "ms.");
             } catch (InterruptedException e) {

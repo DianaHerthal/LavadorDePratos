@@ -35,7 +35,7 @@ public class Lavador implements Runnable {
                         tempoLavagem = 10; 
                         break;
                 }
-                Thread.sleep(tempoLavagem); 
+                // Thread.sleep(tempoLavagem); 
                 logger.fine("Lavador terminou de lavar o prato #" + prato.getNSerie());
                 escorredor.colocarPrato(prato);
                 logger.fine("Lavador colocou o prato #" + prato.getNSerie() + " no escorredor.");

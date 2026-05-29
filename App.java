@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 public class App {
 
     private static final Logger logger = Logger.getLogger(App.class.getName());
-    private static final long MAX = 10;
+    private static final long MAX = 500;
 
 
     private final Lavador lavador;
@@ -57,8 +57,8 @@ public class App {
         App app = new App();
         app.work();
         try {
-            logger.info("O programa vai rodar por 2 minutos...");
-            Thread.sleep(120000); 
+            logger.info("O programa vai rodar por 20 segundos...");
+            Thread.sleep(20000); 
         } catch (InterruptedException e) {
             logger.severe("A thread principal foi interrompida inesperadamente!");
             Thread.currentThread().interrupt();

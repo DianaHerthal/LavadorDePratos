@@ -35,12 +35,12 @@ public class Lavador implements Runnable {
                         tempoLavagem = 10; 
                         break;
                 }
-                // Thread.sleep(tempoLavagem); 
+                Thread.sleep(tempoLavagem); 
                 logger.fine("Lavador terminou de lavar o prato #" + prato.getNSerie());
                 escorredor.colocarPrato(prato);
                 logger.fine("Lavador colocou o prato #" + prato.getNSerie() + " no escorredor.");
             } catch (InterruptedException e) {
-                logger.fine("Lavador foi interrompido e está parando o trabalho.");
+                logger.severe("Lavador foi interrompido e está parando o trabalho.");
                 Thread.currentThread().interrupt(); 
                 break; 
             }

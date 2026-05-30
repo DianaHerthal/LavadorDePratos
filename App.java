@@ -57,7 +57,7 @@ public class App {
             if (stream != null) {
                 LogManager.getLogManager().readConfiguration(stream);
             } else {
-                logger.info("Aviso: Arquivo log.properties não encontrado. Verifique se ele está na pasta raiz do src.");
+                logger.warning("Aviso: Arquivo log.properties não encontrado. Verifique se ele está na pasta raiz do src.");
             }
         } catch (Exception e) {
             logger.severe("Erro ao carregar configuração de log: " + e.getMessage());
